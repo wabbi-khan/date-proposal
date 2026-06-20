@@ -112,7 +112,6 @@ function App() {
   const [selectedGifIndex, setSelectedGifIndex] = useState(
     parseInt(initialGif) || 0,
   );
-  const [customGifUrl, setCustomGifUrl] = useState("");
 
   // Navigation & Interactive UI States
   const [viewMode, setViewMode] = useState(
