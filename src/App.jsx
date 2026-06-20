@@ -23,7 +23,7 @@ export default function App() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-pink-400 animate-pulse text-sm">Loading...</p>
+        <img src="/cat-loading.gif" alt="cat-loading" className="w-60 h-60" />
       </div>
     );
   }
@@ -62,7 +62,7 @@ export default function App() {
       </div>
 
       {/* Main Card */}
-      <main className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-8 border border-pink-100 z-10 transition-all duration-500 hover:shadow-pink-100/50">
+      <main className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl sm:p-8 p-4 border border-pink-100 z-10 transition-all duration-500 hover:shadow-pink-100/50">
         <Routes>
           {/* Auth routes — redirect to dashboard if already logged in */}
           <Route

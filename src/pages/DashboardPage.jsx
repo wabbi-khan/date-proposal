@@ -44,7 +44,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap gap-10">
         <div className="space-y-1">
           <h1 className="text-2xl font-extrabold text-pink-600 tracking-tight">
             My Proposals 💖
@@ -71,10 +71,17 @@ export default function DashboardPage() {
 
       {/* Loading state */}
       {loading && (
-        <div className="text-center py-12">
-          <p className="text-sm text-gray-400 animate-pulse">
-            Loading your proposals...
-          </p>
+        <div className="flex flex-col justify-center items-center">
+          <div className="text-center">
+            <img
+              src="/cat-loading.gif"
+              alt="cat-loading"
+              className="w-30 h-30"
+            />
+            <p className="text-sm text-gray-400 animate-pulse">
+              Loading your proposals...
+            </p>
+          </div>
         </div>
       )}
 

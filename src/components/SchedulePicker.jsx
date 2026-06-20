@@ -25,20 +25,21 @@ export default function SchedulePicker({
 
       <div className="space-y-4 text-left px-2">
         {/* Date picker */}
-        <div>
+        <div className="w-full">
           <label className="block text-sm font-semibold text-gray-600 mb-1">
             Pick a Day ✨
           </label>
           <input
             type="date"
             value={dateAnswer}
+            placeholder="dd/mm/yyyy"
             onChange={(e) => setDateAnswer(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-200 bg-gray-50 text-gray-700 text-sm transition"
+            className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-200 bg-gray-50 text-gray-700 text-sm transition appearance-none cursor-pointer"
           />
         </div>
 
         {/* Time selector */}
-        <div>
+        <div className="w-full">
           <label className="block text-sm font-semibold text-gray-600 mb-1">
             What Time? 🕐
           </label>

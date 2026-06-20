@@ -116,18 +116,18 @@ export default function CreatorWizard({
 
       {/* Action Buttons */}
       <div className="pt-4 border-t border-pink-50 space-y-3">
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <button
             onClick={onPreview}
             disabled={saving}
-            className="flex-1 px-4 py-3 bg-pink-100 hover:bg-pink-200 text-pink-700 font-bold rounded-xl transition shadow-md shadow-pink-100 flex items-center justify-center gap-1 active:scale-95 cursor-pointer disabled:opacity-50"
+            className="whitespace-nowrap flex-1 px-4 py-3 bg-pink-100 hover:bg-pink-200 text-pink-700 font-bold rounded-xl transition shadow-md shadow-pink-100 flex items-center justify-center gap-1 active:scale-95 cursor-pointer disabled:opacity-50"
           >
             {saving ? "Saving..." : "👁️ Preview"}
           </button>
           <button
             onClick={copyToClipboard}
             disabled={!toName || saving}
-            className="flex-1 px-4 py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl transition shadow-lg shadow-pink-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-1 active:scale-95 cursor-pointer"
+            className="whitespace-nowrap flex-1 px-4 py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl transition shadow-lg shadow-pink-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-1 active:scale-95 cursor-pointer"
           >
             {copied ? "✅ Link Copied!" : "🔗 Copy Proposal Link"}
           </button>

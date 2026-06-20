@@ -136,10 +136,13 @@ export default function ProposalPage() {
   // ─── Loading ──────────────────────────────────────────────
   if (loading) {
     return (
-      <div className="text-center py-12">
-        <p className="text-pink-400 animate-pulse text-sm">
-          Loading proposal...
-        </p>
+      <div className="flex flex-col justify-center items-center">
+        <div className="text-center">
+          <img src="/cat-loading.gif" alt="cat-loading" className="w-30 h-30" />
+          <p className="text-sm text-gray-400 animate-pulse">
+            Loading your proposals...
+          </p>
+        </div>
       </div>
     );
   }

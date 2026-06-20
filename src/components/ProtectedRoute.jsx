@@ -10,7 +10,8 @@ export default function ProtectedRoute({ children }) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-pink-400 animate-pulse text-sm">Loading...</p>
+        {/* <p className="text-pink-400 animate-pulse text-sm">Loading...</p> */}
+        <img src="/cat-loading.gif" alt="cat-loading" className="w-60 h-60" />
       </div>
     );
   }

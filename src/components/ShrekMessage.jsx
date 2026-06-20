@@ -15,7 +15,7 @@ export default function ShrekMessage({ onNext }) {
       {/* Message text */}
       <div className="space-y-2 px-2">
         <p className="text-lg font-bold text-[#5c2a2a] leading-snug">
-          glad you didn't say no. be ready by 6, I'm coming to get you 🚗
+          glad you didn't say no. be ready, I'm coming to get you 🚗
         </p>
       </div>
 
