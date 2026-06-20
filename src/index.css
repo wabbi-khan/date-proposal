@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sacramento&family=Fredoka:wght@300..700&display=swap');
+
+@import "tailwindcss";
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@layer base {
+  body {
+    font-family: 'Outfit', 'Fredoka', system-ui, -apple-system, sans-serif;
+    background-color: #ffdce2;
+    color: #4a3e41;
+  }
+}
+
+.font-romantic {
+  font-family: 'Sacramento', cursive, sans-serif;
+}
+
+.font-playful {
+  font-family: 'Fredoka', sans-serif;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-heart {
+  animation: float 6s linear infinite;
+}
