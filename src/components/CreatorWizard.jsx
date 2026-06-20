@@ -1,9 +1,5 @@
 import { CUTE_IMAGES, PRESETS } from "../constants";
 
-/**
- * Creator Wizard — the main editor screen where users build their proposal.
- * Handles name inputs, message selection, illustration picker, preview & share.
- */
 export default function CreatorWizard({
   toName,
   setToName,
@@ -16,6 +12,7 @@ export default function CreatorWizard({
   copied,
   copyToClipboard,
   onPreview,
+  saving = false,
 }) {
   return (
     <div className="space-y-6">
@@ -122,13 +119,14 @@ export default function CreatorWizard({
         <div className="flex gap-2">
           <button
             onClick={onPreview}
-            className="flex-1 px-4 py-3 bg-pink-100 hover:bg-pink-200 text-pink-700 font-bold rounded-xl transition shadow-md shadow-pink-100 flex items-center justify-center gap-1 active:scale-95 cursor-pointer"
+            disabled={saving}
+            className="flex-1 px-4 py-3 bg-pink-100 hover:bg-pink-200 text-pink-700 font-bold rounded-xl transition shadow-md shadow-pink-100 flex items-center justify-center gap-1 active:scale-95 cursor-pointer disabled:opacity-50"
           >
-            👁️ Preview
+            {saving ? "Saving..." : "👁️ Preview"}
           </button>
           <button
             onClick={copyToClipboard}
-            disabled={!toName}
+            disabled={!toName || saving}
             className="flex-1 px-4 py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl transition shadow-lg shadow-pink-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-1 active:scale-95 cursor-pointer"
           >
             {copied ? "✅ Link Copied!" : "🔗 Copy Proposal Link"}
