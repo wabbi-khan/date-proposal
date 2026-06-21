@@ -13,7 +13,6 @@ export default function DashboardPage() {
   const [records, setRecords] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log("records", records);
   // Listen to Firestore records in real-time
   useEffect(() => {
     if (!user) return;
