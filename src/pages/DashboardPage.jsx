@@ -20,7 +20,7 @@ export default function DashboardPage() {
     const unsubscribe = db
       .collection("proposals")
       .where("userId", "==", user.uid)
-      //   .orderBy("createdAt", "desc")
+      // .orderBy("createdAt", "desc")
       .onSnapshot(
         (snapshot) => {
           const data = snapshot.docs.map((doc) => ({
@@ -104,65 +104,71 @@ export default function DashboardPage() {
       {/* Records list */}
       {!loading && records.length > 0 && (
         <div className="space-y-3 max-h-[60vh] overflow-y-auto pr-1 scrollbar-none">
-          {records.map((record) => (
-            <div
-              key={record.id}
-              className="bg-pink-50/60 border border-pink-100 rounded-2xl p-4 space-y-2 hover:shadow-md transition"
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-sm font-bold text-gray-800">
-                    {record.toName || "Unnamed"} 💌
-                  </p>
-                  <p className="text-xs text-gray-500">
-                    from {record.byName || "You"}
-                  </p>
+          {/* show records in descending order */}
+          {records
+            ?.slice()
+            ?.reverse()
+            ?.map((record) => (
+              <div
+                key={record.id}
+                className="bg-pink-50/60 border border-pink-100 rounded-2xl p-4 space-y-2 hover:shadow-md transition"
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="text-sm font-bold text-gray-800">
+                      {record.toName || "Unnamed"} 💌
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      from {record.byName || "You"}
+                    </p>
+                  </div>
+                  {record.createdAt && (
+                    <span className="text-[10px] text-gray-400 whitespace-nowrap">
+                      {new Date(record.createdAt).toLocaleDateString()}
+                    </span>
+                  )}
                 </div>
-                {record.createdAt && (
-                  <span className="text-[10px] text-gray-400 whitespace-nowrap">
-                    {new Date(record.createdAt).toLocaleDateString()}
-                  </span>
+
+                <p className="text-xs text-gray-600 line-clamp-2">
+                  {record.message}
+                </p>
+
+                {/* Date details */}
+                {(record.dateAnswer ||
+                  record.timeAnswer ||
+                  record.foodAnswer) && (
+                  <div className="flex flex-wrap gap-2 text-[11px]">
+                    {record.dateAnswer && (
+                      <span className="px-2 py-0.5 bg-white border border-pink-100 rounded-full text-gray-600">
+                        📅 {record.dateAnswer}
+                      </span>
+                    )}
+                    {record.timeAnswer && (
+                      <span className="px-2 py-0.5 bg-white border border-pink-100 rounded-full text-gray-600">
+                        🕐 {record.timeAnswer}
+                      </span>
+                    )}
+                    {record.foodAnswer && (
+                      <span className="px-2 py-0.5 bg-white border border-pink-100 rounded-full text-gray-600">
+                        🍽️ {record.foodAnswer}
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                {/* Share link */}
+                {record.shareUrl && (
+                  <button
+                    onClick={() =>
+                      navigator.clipboard.writeText(record.shareUrl)
+                    }
+                    className="text-[11px] text-pink-500 hover:underline font-medium cursor-pointer"
+                  >
+                    📋 Copy share link
+                  </button>
                 )}
               </div>
-
-              <p className="text-xs text-gray-600 line-clamp-2">
-                {record.message}
-              </p>
-
-              {/* Date details */}
-              {(record.dateAnswer ||
-                record.timeAnswer ||
-                record.foodAnswer) && (
-                <div className="flex flex-wrap gap-2 text-[11px]">
-                  {record.dateAnswer && (
-                    <span className="px-2 py-0.5 bg-white border border-pink-100 rounded-full text-gray-600">
-                      📅 {record.dateAnswer}
-                    </span>
-                  )}
-                  {record.timeAnswer && (
-                    <span className="px-2 py-0.5 bg-white border border-pink-100 rounded-full text-gray-600">
-                      🕐 {record.timeAnswer}
-                    </span>
-                  )}
-                  {record.foodAnswer && (
-                    <span className="px-2 py-0.5 bg-white border border-pink-100 rounded-full text-gray-600">
-                      🍽️ {record.foodAnswer}
-                    </span>
-                  )}
-                </div>
-              )}
-
-              {/* Share link */}
-              {record.shareUrl && (
-                <button
-                  onClick={() => navigator.clipboard.writeText(record.shareUrl)}
-                  className="text-[11px] text-pink-500 hover:underline font-medium cursor-pointer"
-                >
-                  📋 Copy share link
-                </button>
-              )}
-            </div>
-          ))}
+            ))}
         </div>
       )}
     </div>
