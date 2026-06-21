@@ -88,27 +88,27 @@ export default function ProposalPage() {
   // ─── NO button flee ───────────────────────────────────────
   const moveNoButton = () => {
     if (!containerRef.current || !noButtonRef.current) return;
-    const mainRect = containerRef.current.getBoundingClientRect();
+    const cardRect = containerRef.current.getBoundingClientRect();
     const btnRect = noButtonRef.current.getBoundingClientRect();
     const yesBtn = containerRef.current.querySelector(".yes-button");
     const yesRect = yesBtn ? yesBtn.getBoundingClientRect() : null;
 
-    const maxX = mainRect.width - btnRect.width - 24;
-    const maxY = mainRect.height - btnRect.height - 24;
+    const maxX = cardRect.width - btnRect.width - 20;
+    const maxY = cardRect.height - btnRect.height - 20;
 
     let newX = 0,
       newY = 0,
       attempts = 0;
     do {
-      newX = Math.random() * maxX + 12;
-      newY = Math.random() * maxY + 12;
+      newX = Math.random() * maxX + 10;
+      newY = Math.random() * maxY + 10;
       attempts++;
     } while (
       yesRect &&
-      newX + btnRect.width > yesRect.left - mainRect.left - 15 &&
-      newX < yesRect.right - mainRect.left + 15 &&
-      newY + btnRect.height > yesRect.top - mainRect.top - 15 &&
-      newY < yesRect.bottom - mainRect.top + 15 &&
+      newX + btnRect.width > yesRect.left - cardRect.left - 20 &&
+      newX < yesRect.right - cardRect.left + 20 &&
+      newY + btnRect.height > yesRect.top - cardRect.top - 20 &&
+      newY < yesRect.bottom - cardRect.top + 20 &&
       attempts < 30
     );
     setNoButtonPosition({ x: newX, y: newY, moved: true });

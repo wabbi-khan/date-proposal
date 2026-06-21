@@ -68,10 +68,19 @@ export default function ProposalQuestion({
           onMouseEnter={onNoHover}
           onMouseOver={onNoHover}
           onFocus={onNoHover}
-          onClick={onNoHover}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onNoHover();
+          }}
           onTouchStart={(e) => {
             e.preventDefault();
+            e.stopPropagation();
             onNoHover();
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
           }}
           style={
             noButtonPosition.moved
