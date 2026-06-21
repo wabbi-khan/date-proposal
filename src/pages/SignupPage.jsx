@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../firebase";
+import { VscEye, VscEyeClosed } from "react-icons/vsc";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -77,26 +80,44 @@ export default function SignupPage() {
           <label className="block text-xs font-semibold uppercase tracking-wider text-pink-500 mb-1">
             Password
           </label>
-          <input
-            type="password"
-            placeholder="••••••••"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-2.5 border border-pink-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-300 bg-pink-50/20 text-gray-700 transition"
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-2.5 pr-10 border border-pink-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-300 bg-pink-50/20 text-gray-700 transition"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-pink-500 transition cursor-pointer"
+            >
+              {showPassword ? <VscEyeClosed size={22} /> : <VscEye size={22} />}
+            </button>
+          </div>
         </div>
 
         <div>
           <label className="block text-xs font-semibold uppercase tracking-wider text-pink-500 mb-1">
             Confirm Password
           </label>
-          <input
-            type="password"
-            placeholder="••••••••"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full px-4 py-2.5 border border-pink-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-300 bg-pink-50/20 text-gray-700 transition"
-          />
+          <div className="relative">
+            <input
+              type={showConfirm ? "text" : "password"}
+              placeholder="••••••••"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="w-full px-4 py-2.5 pr-10 border border-pink-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-300 bg-pink-50/20 text-gray-700 transition"
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirm(!showConfirm)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-pink-500 transition cursor-pointer"
+            >
+              {showConfirm ? <VscEyeClosed size={22} /> : <VscEye size={22} />}
+            </button>
+          </div>
         </div>
 
         <button
