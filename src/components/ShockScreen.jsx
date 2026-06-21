@@ -1,7 +1,3 @@
-/**
- * Step 1 — Shock/excitement reaction screen after the user says YES.
- * Features confetti decorations and a surprised GIF.
- */
 export default function ShockScreen({ onNext }) {
   return (
     <div className="text-center space-y-5 py-4 animate-[fadeIn_0.4s_ease]">
@@ -64,7 +60,7 @@ export default function ShockScreen({ onNext }) {
 
       <button
         onClick={onNext}
-        className="mt-2 px-8 py-3 bg-pink-200 hover:bg-pink-300 text-pink-700 font-bold rounded-full shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
+        className="mt-2 px-8 py-3 bg-pink-400 hover:bg-pink-400 text-white font-bold rounded-full shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
       >
         okay okay! →
       </button>

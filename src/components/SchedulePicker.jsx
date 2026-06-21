@@ -1,6 +1,3 @@
-/**
- * Step 2 — Schedule picker where the user selects a date and time for the date.
- */
 export default function SchedulePicker({
   dateAnswer,
   setDateAnswer,
@@ -59,7 +56,7 @@ export default function SchedulePicker({
 
       <button
         onClick={handleSubmit}
-        className="w-full py-4 bg-pink-300 hover:bg-pink-400 text-white font-bold rounded-2xl shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-base"
+        className="w-full py-4 bg-pink-400 hover:bg-pink-400 text-white font-bold rounded-2xl shadow-md transition-all duration-200 active:scale-95 cursor-pointer text-base"
       >
         set the date! ❤️
       </button>

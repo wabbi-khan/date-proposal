@@ -1,7 +1,3 @@
-/**
- * Step 0 — The initial proposal card with the YES/NO buttons.
- * The NO button flees from the cursor to make saying "no" nearly impossible.
- */
 export default function ProposalQuestion({
   toName,
   byName,

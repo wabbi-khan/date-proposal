@@ -5,9 +5,6 @@ import db, { auth, timestamp } from "../firebase";
 import useAuth from "../hooks/useAuth";
 import CreatorWizard from "../components/CreatorWizard";
 
-/**
- * Create page — proposal editor. Saves to Firestore and generates share link.
- */
 export default function CreatePage() {
   const { user } = useAuth();
   const navigate = useNavigate();

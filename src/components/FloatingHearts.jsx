@@ -1,9 +1,5 @@
 import { useEffect, useRef } from "react";
 
-/**
- * Full-screen canvas animation with floating heart particles.
- * Renders behind all UI as a decorative background.
- */
 export default function FloatingHearts({ resetKey }) {
   const canvasRef = useRef(null);
 

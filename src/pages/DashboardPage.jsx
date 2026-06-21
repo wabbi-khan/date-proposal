@@ -4,9 +4,6 @@ import { auth } from "../firebase";
 import db from "../firebase";
 import useAuth from "../hooks/useAuth";
 
-/**
- * Dashboard page — fetches and displays the logged-in user's proposal records.
- */
 export default function DashboardPage() {
   const { user } = useAuth();
   const navigate = useNavigate();

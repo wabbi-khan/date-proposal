@@ -2,9 +2,6 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../firebase";
 
-/**
- * Signup page — email + password + confirm password.
- */
 export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

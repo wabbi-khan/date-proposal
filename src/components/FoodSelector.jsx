@@ -1,8 +1,3 @@
-/**
- * Step 3 — Food preference selector with emoji-based grid cards.
- * Tapping a food choice auto-advances to the next step.
- */
-
 const FOOD_OPTIONS = [
   { emoji: "🍕", label: "Pizza" },
   { emoji: "🍣", label: "Sushi" },

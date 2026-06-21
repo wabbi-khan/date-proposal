@@ -1,7 +1,3 @@
-/**
- * Step 5 — Final celebration card summarizing the date details.
- * Shows names, date/time, food choice, and a reset button.
- */
 export default function FinalCelebration({
   toName,
   byName,
@@ -16,7 +12,10 @@ export default function FinalCelebration({
       {/* Celebration image */}
       <div className="relative">
         <img
-          src={activeImage.successUrl}
+          src={
+            "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3o1c2FxbjJkaHJvdWxueWdieHNzM202cXQ4cGFwM3ZhN3B5dnlkMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fUQ4rhUZJYiQsas6WD/giphy.gif" ||
+            activeImage.successUrl
+          }
           alt="Happy Cat celebration"
           className="w-40 h-40 mx-auto object-cover rounded-2xl shadow-md border-4 border-pink-100"
         />

@@ -12,10 +12,6 @@ import FoodSelector from "../components/FoodSelector";
 import ShrekMessage from "../components/ShrekMessage";
 import FinalCelebration from "../components/FinalCelebration";
 
-/**
- * Proposal page — the interactive proposal flow the recipient sees.
- * Reads proposal data from Firestore by ID and saves recipient answers on completion.
- */
 export default function ProposalPage() {
   const { id } = useParams();
 

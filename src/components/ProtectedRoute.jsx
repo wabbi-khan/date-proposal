@@ -1,9 +1,6 @@
 import { Navigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
-/**
- * Wraps protected routes — redirects to /login if user is not authenticated.
- */
 export default function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
 
