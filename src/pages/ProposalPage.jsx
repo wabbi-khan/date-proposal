@@ -169,7 +169,7 @@ export default function ProposalPage() {
       ref={containerRef}
     >
       {/* Header Controls */}
-      <div className="absolute top-0 right-0 flex items-center gap-2">
+      <div className="absolute top-0 right-5 flex items-center gap-2">
         <button
           onClick={toggleMusic}
           className="w-8 h-8 rounded-full bg-pink-50 text-pink-600 border border-pink-100 flex items-center justify-center hover:bg-pink-100 transition shadow-sm cursor-pointer"

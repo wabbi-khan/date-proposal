@@ -110,7 +110,7 @@ export default function App() {
       {/* Footer */}
       <footer className="mt-8 text-center text-xs text-pink-400 font-medium z-10 space-y-1">
         <p>Made with 💖 for sweet couples</p>
-        {isProposalRoute && !user && (
+        {/* {isProposalRoute && !user && (
           <Link
             to="/login"
             className="text-pink-500 hover:underline font-bold transition"
@@ -125,7 +125,7 @@ export default function App() {
           >
             ✨ Create New Proposal
           </Link>
-        )}
+        )} */}
       </footer>
     </div>
   );
