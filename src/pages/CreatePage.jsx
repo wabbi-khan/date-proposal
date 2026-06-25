@@ -4,6 +4,7 @@ import { CUTE_IMAGES } from "../constants";
 import db, { auth, timestamp } from "../firebase";
 import useAuth from "../hooks/useAuth";
 import CreatorWizard from "../components/CreatorWizard";
+import { toast } from "react-toastify";
 
 export default function CreatePage() {
   const { user } = useAuth();
@@ -57,6 +58,7 @@ export default function CreatePage() {
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+      toast.success("🦄 copied link");
     } catch {
       // Fallback for older browsers
       const ta = document.createElement("textarea");

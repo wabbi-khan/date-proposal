@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../firebase";
 import db from "../firebase";
 import useAuth from "../hooks/useAuth";
+import { toast } from "react-toastify";
 
 export default function DashboardPage() {
   const { user } = useAuth();
@@ -155,9 +156,10 @@ export default function DashboardPage() {
                 {/* Share link */}
                 {record.shareUrl && (
                   <button
-                    onClick={() =>
-                      navigator.clipboard.writeText(record.shareUrl)
-                    }
+                    onClick={() => {
+                      navigator.clipboard.writeText(record.shareUrl);
+                      toast.success("🦄 copied link");
+                    }}
                     className="text-[11px] text-pink-500 hover:underline font-medium cursor-pointer"
                   >
                     📋 Copy share link
